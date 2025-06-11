@@ -34,32 +34,32 @@ public class UIManager : MonoBehaviour
     }
     public void VolumeMaster(float sliderValue)
     {
-        AudioManager.instance.SetVolume(sliderValue);
+        AudioManager_Kevin.instance.SetVolume(sliderValue);
     }
 
     public void SfxVolume(float sliderValue)
     {
-        AudioManager.instance.SfxVolume(sliderValue);
+        AudioManager_Kevin.instance.SfxVolume(sliderValue);
     }
 
     public void BgMusicVolume(float sliderValue)
     {
-        AudioManager.instance.BgMusicVolume(sliderValue);
+        AudioManager_Kevin.instance.BgMusicVolume(sliderValue);
     }
 
     public void MuteMaster()
     {
-       AudioManager.instance.MuteMaster();
+       AudioManager_Kevin.instance.MuteMaster();
     }
 
     public void MuteSfx()
     {
-        AudioManager.instance.MuteSfx();
+        AudioManager_Kevin.instance.MuteSfx();
     }
 
     public void MuteBgMusic()
     {
-        AudioManager.instance.MuteBgMusic();
+        AudioManager_Kevin.instance.MuteBgMusic();
     }
 
 }

@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager_Kevin : MonoBehaviour
 {
-    public static AudioManager instance;
+    public static AudioManager_Kevin instance;
 
     [SerializeField] private AudioMixer myAudioMixer;
     
