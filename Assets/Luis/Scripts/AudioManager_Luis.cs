@@ -50,12 +50,6 @@ public class AudioManager_Luis : MonoBehaviour
         vfxLabel.text = Mathf.RoundToInt(vfxSlider.value + 100).ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetMasterVolume()
     {
         float steppedValue = Mathf.Round(masterSlider.value / 5f) * 5f;

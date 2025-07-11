@@ -11,11 +11,13 @@ public class UIManager_Luis : MonoBehaviour
     public SpriteRenderer musicOn, musicOff;
     public Button vfxVol;
     public SpriteRenderer vfxOn, vfxOff;
+    AudioManager_Luis am;
+    Sprite sprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        am = AudioManager_Luis.Instance;
     }
 
     // Update is called once per frame
@@ -35,8 +37,8 @@ public class UIManager_Luis : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0f;
         pauseMenuPanel.SetActive(true);
-        AudioManager_Luis.Instance.musicMain.Pause();
-        AudioManager_Luis.Instance.musicPause.Play();
+        am.musicMain.Pause();
+        am.musicPause.Play();
     }
 
     public void ResumeGame()
@@ -44,49 +46,52 @@ public class UIManager_Luis : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1f;
         pauseMenuPanel.SetActive(false);
-        AudioManager_Luis.Instance.musicPause.Stop();
-        AudioManager_Luis.Instance.musicMain.UnPause();
+        am.musicPause.Stop();
+        am.musicMain.UnPause();
     }
 
     public void MuteMaster()
     {
-        if(masterVol.GetComponent<Image>().sprite == masterOn.sprite)
+        sprite = masterVol.GetComponent<Image>().sprite;
+        if (sprite == masterOn.sprite)
         {
-            masterVol.GetComponent<Image>().sprite = masterOff.sprite;
-            AudioManager_Luis.Instance.MuteMaster();
+            sprite = masterOff.sprite;
+            am.MuteMaster();
         }
         else
         {
-            masterVol.GetComponent<Image>().sprite = masterOn.sprite;
-            AudioManager_Luis.Instance.UnMuteMaster();
+            sprite = masterOn.sprite;
+            am.UnMuteMaster();
         }
     }
 
     public void MuteMusic()
     {
-        if (musicVol.GetComponent<Image>().sprite == musicOn.sprite)
+        sprite = musicVol.GetComponent<Image>().sprite;
+        if (sprite == musicOn.sprite)
         {
-            musicVol.GetComponent<Image>().sprite = musicOff.sprite;
-            AudioManager_Luis.Instance.MuteMusic();
+            sprite = musicOff.sprite;
+            am.MuteMusic();
         }
         else
         {
-            musicVol.GetComponent<Image>().sprite = musicOn.sprite;
-            AudioManager_Luis.Instance.UnMuteMusic();
+            sprite = musicOn.sprite;
+            am.UnMuteMusic();
         }
     }
 
     public void MuteVFX()
     {
-        if (vfxVol.GetComponent<Image>().sprite == vfxOn.sprite)
+        sprite = vfxVol.GetComponent<Image>().sprite;
+        if (sprite == vfxOn.sprite)
         {
-            vfxVol.GetComponent<Image>().sprite = vfxOff.sprite;
-            AudioManager_Luis.Instance.MuteVFX();
+            sprite = vfxOff.sprite;
+            am.MuteVFX();
         }
         else
         {
-            vfxVol.GetComponent<Image>().sprite = vfxOn.sprite;
-            AudioManager_Luis.Instance.UnMuteVFX();
+            sprite = vfxOn.sprite;
+            am.UnMuteVFX();
         }
     }
 }
